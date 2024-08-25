@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Course Instance Details</title>
+    <link rel="stylesheet" href="/css/style.css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<div th:fragment="content">
+    <header>
+        <h2>Course Instance Details</h2>
+        <a href="#" th:href="@{/course-instances}" class="btn">Back to List</a>
+    </header>
+    <main>
+        <h3>Details</h3>
+        <table>
+            <tbody>
+            <tr>
+                <th>ID:</th>
+                <td th:text="${courseInstance.id}"></td>
+            </tr>
+            <tr>
+                <th>Year:</th>
+                <td th:text="${courseInstance.year}"></td>
+            </tr>
+            <tr>
+                <th>Semester:</th>
+                <td th:text="${courseInstance.semester}"></td>
+            </tr>
+            <tr>
+                <th>Course Title:</th>
+                <td th:text="${courseInstance.course.title}"></td>
+            </tr>
+            <tr>
+                <th>Course Code:</th>
+                <td th:text="${courseInstance.course.courseCode}"></td>
+            </tr>
+            <tr>
+                <th>Description:</th>
+                <td th:text="${courseInstance.course.description}"></td>
+            </tr>
+            <tr>
+                <th>Assigned:</th>
+                <td th:text="${isAssigned ? 'Yes' : 'No'}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </main>
+</div>
+</body>
+</html>

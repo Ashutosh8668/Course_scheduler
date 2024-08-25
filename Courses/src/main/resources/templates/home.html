@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Courses</title>
+    <link rel="stylesheet" href="/css/style.css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<div th:fragment="content">
+    <header>
+        <h2>All Courses</h2>
+        <a href="#" th:href="@{/courses/add}" class="btn">Add Course</a>
+        <a href="#" th:href="@{/assignments/assign}" class="btn">Assign Course</a>
+        <a href="#" th:href="@{/faculties/}" class="btn">Add Faculty</a>
+    </header>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Course Code</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="course : ${courses}">
+            <td th:text="${course.id}"></td>
+            <td th:text="${course.title}"></td>
+            <td th:text="${course.courseCode}"></td>
+            <td th:text="${course.description}"></td>
+            <td>
+                <a href="#" th:href="@{/courses/{id}(id=${course.id})}" class="btn">More</a>
+                <a href="#" th:href="@{/courses/edit/{id}(id=${course.id})}" class="btn">Edit</a>
+                <a href="#" th:href="@{/courses/assignments/{id}(id=${course.id})}" class="btn">View Assignments</a>
+                <form th:action="@{/courses/delete/{id}(id=${course.id})}" method="post" style="display:inline;">
+                    <button type="submit" class="btn">Delete</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

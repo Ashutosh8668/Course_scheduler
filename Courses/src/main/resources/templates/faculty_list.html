@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Faculties</title>
+    <link rel="stylesheet" href="/css/style.css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<div th:fragment="content">
+    <header>
+        <h2>All Faculties</h2>
+        <a th:href="@{/faculties/add}" class="btn">Add Faculty</a>
+        <a th:href="@{/courses/}" class="btn">Back to Home</a> <!-- Added Back to Home button -->
+    </header>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Department</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="faculty : ${faculties}">
+            <td th:text="${faculty.id}"></td>
+            <td th:text="${faculty.name}"></td>
+            <td th:text="${faculty.email}"></td>
+            <td th:text="${faculty.department}"></td>
+            <td>
+                <form th:action="@{/faculties/delete/{id}(id=${faculty.id})}" method="post" style="display:inline;">
+                    <button type="submit" class="btn">Delete</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

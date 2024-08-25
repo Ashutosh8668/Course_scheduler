@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assign Course</title>
+    <link rel="stylesheet" href="/css/style.css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<div th:fragment="content">
+    <header>
+        <h2>Assign Course</h2>
+        <a href="#" th:href="@{/courses/}" class="btn">Back to Courses</a>
+    </header>
+
+    <form th:action="@{/assignments/add}" method="post">
+        <label for="course">Course:</label>
+        <select id="course" name="courseId" required>
+            <option value="" disabled selected>Select a course</option>
+            <option th:each="course : ${courses}" th:value="${course.id}" th:text="${course.title}"></option>
+        </select>
+
+        <label for="faculty">Faculty:</label>
+        <select id="faculty" name="facultyId" required>
+            <option value="" disabled selected>Select a faculty</option>
+            <option th:each="faculty : ${faculties}" th:value="${faculty.id}" th:text="${faculty.name}"></option>
+        </select>
+
+        <label for="year">Year:</label>
+        <input type="number" id="year" name="year" min="2000" max="2100" required>
+
+        <label for="semester">Semester:</label>
+        <input type="number" id="semester" name="semester" min="1" max="8" required>
+
+        <button type="submit" class="btn">Assign</button>
+    </form>
+</div>
+</body>
+</html>

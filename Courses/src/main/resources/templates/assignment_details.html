@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment Details</title>
+    <link rel="stylesheet" href="/css/style.css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<div th:fragment="content">
+    <header>
+        <h2>Assignment Details</h2>
+    </header>
+    <div>
+        <h3>Course: <span th:text="${assignment.courseInstance.course.title}"></span></h3>
+        <h4>Assigned to: <span th:text="${assignment.courseInstance.faculty.name}"></span></h4>
+        <p>Year: <span th:text="${assignment.courseInstance.year}"></span></p>
+        <p>Semester: <span th:text="${assignment.courseInstance.semester}"></span></p>
+        <!-- Display other assignment details here -->
+    </div>
+    <a href="#" th:href="@{/courses/}" class="btn">Back to Home</a>
+</div>
+</body>
+</html>

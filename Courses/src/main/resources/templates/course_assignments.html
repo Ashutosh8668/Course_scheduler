@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Course Assignments</title>
+  <link rel="stylesheet" href="/css/style.css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<div th:fragment="content">
+  <header>
+    <h2>Assignments for Course: <span th:text="${course.title}"></span></h2>
+    <a href="#" th:href="@{/courses/}" class="btn">Back to Courses</a>
+  </header>
+  <table>
+    <thead>
+    <tr>
+      <th>Faculty ID</th>
+      <th>Faculty Name</th>
+      <th>Year</th>
+      <th>Semester</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="instance : ${courseInstances}">
+      <td th:text="${instance.faculty.id}"></td>
+      <td th:text="${instance.faculty.name}"></td>
+      <td th:text="${instance.year}"></td>
+      <td th:text="${instance.semester}"></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

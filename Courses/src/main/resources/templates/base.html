@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Course Manager</title>
+    <link rel="stylesheet" href="/css/style.css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<header>
+    <h1>Course Manager</h1>
+    <nav>
+        <a href="#" th:href="@{/}">Home</a>
+        <!-- Add more links here if needed -->
+    </nav>
+</header>
+<main>
+    <div th:fragment="content"></div>
+</main>
+<footer>
+    <p>&copy; 2024 Course Manager</p>
+</footer>
+</body>
+</html>
